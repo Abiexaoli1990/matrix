@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Efek Neon Matrix Berjajar</title>
+    <title>Efek Neon Matrix Responsif Themplate</title>
     <style>
         body {
             margin: 0;
@@ -28,27 +28,42 @@
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
-            /* Pastikan teks tidak pindah baris jika terlalu panjang */
-            white-space: nowrap;
+            white-space: nowrap; /* Pastikan teks tetap dalam satu baris */
         }
 
         .neon-link {
-            /* Menjadikan link terlihat seperti teks neon biasa */
             text-decoration: none; /* Hilangkan garis bawah link */
             cursor: pointer; /* Ubah kursor menjadi tangan saat diarahkan */
             font-family: 'Courier New', Courier, monospace;
-            font-size: 3rem; /* Ukuran font sedikit dikecilkan agar muat */
             color: #39ff14; /* Warna hijau neon */
-            padding: 0 10px; /* Spasi antar teks jika ditambahkan lagi */
+            padding: 0 10px; /* Spasi antar teks */
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        /* --- VERSI KOMPUTER (Default Style) --- */
+        .neon-link {
+            font-size: 3rem; /* Ukuran besar untuk komputer */
             text-shadow:
                 0 0 10px #39ff14,
                 0 0 20px #39ff14,
                 0 0 30px #39ff14,
                 0 0 40px #2afa00; /* Efek glow */
-            transition: color 0.3s, text-shadow 0.3s;
         }
 
-        /* Efek saat kursor diarahkan ke link */
+        /* --- MEDIA QUERY: VERSI MOBILE (Layar kurang dari 600px) --- */
+        @media screen and (max-width: 600px) {
+            .neon-link {
+                font-size: 1rem; /* Ukuran lebih kecil untuk mobile */
+                padding: 0 5px; /* Spasi lebih kecil untuk mobile */
+                /* Mengurangi intensitas shadow agar tidak terlalu penuh di layar kecil */
+                text-shadow:
+                    0 0 5px #39ff14,
+                    0 0 10px #39ff14,
+                    0 0 15px #2afa00;
+            }
+        }
+        
+        /* Efek saat kursor/sentuhan diarahkan ke link */
         .neon-link:hover {
             color: #ffffff; /* Warna putih terang saat dihover */
             text-shadow:
@@ -71,7 +86,6 @@
         <a href="https://facebook.com/AbieXaoliReal" target="_blank" class="neon-link">
            SITI KHANIFAH
         </a>
-      
     </div>
 
     <script>
